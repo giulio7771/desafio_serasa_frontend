@@ -1,4 +1,4 @@
-.product-info {
+.empresa-info {
   max-width: 700px;
   margin: 20px auto 0;
   padding: 20px;
@@ -6,11 +6,11 @@
   border: 1px solid #ddd;
 }
 
-.product-info h1 {
+.empresa-info h1 {
   font-size: 32px;
 }
 
-.product-info p {
+.empresa-info p {
   color: rgb(10, 119, 173);
   line-height: 24px;
   margin-top: 5px;

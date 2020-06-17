@@ -6,65 +6,38 @@ import "./styles.css";
 
 export default class Main extends Component {
   state = {
-    products: [],
-    productInfo: {},
-    page: 1,
+    empresas: []
   }
   
   componentDidMount() {
-    this.loadProducts();
+    this.carregaEmpresas();
   }
 
-  loadProducts = async (page = 1) => {
-    const response = await api.get(`/products?page=${page}`);
+  carregaEmpresas = async () => {
+    const response = await api.get(`/empresas`);
 
-    const { docs, ...productInfo } = response.data;
+    const empresas = response.data;
 
     this.setState({
-      products: docs,
-      productInfo,
-      page
-    })
+      ...this.state,
+      empresas
+    });
   }
 
-  prevPage = () => {
-    const { page, productInfo } = this.state;
-
-    if (page === 1) return;
-
-    const pageNumber = page - 1;
-
-    this.loadProducts(pageNumber);
-
-  }
-
-  nextPage = () => {
-    const { page, productInfo } = this.state;
-
-    if (page === productInfo.pages) return;
-
-    const pageNumber = page + 1;
-
-    this.loadProducts(pageNumber);
-  }
+  
 
   render() {
-      const { products, page, productInfo } = this.state;
+      const { empresas } = this.state;
       
       return (
-      <div className="product-list">
-        {products.map(product => (
-          <article key={product._id}>
-            <strong>{product.title}</strong>
-            <p>{product.description}</p>
-
-            <Link to={`/products/${product._id}`}>Acessar</Link>
+      <div className="empresa-list">
+        {empresas.map(empresa => (
+          <article key={empresa.id}>
+            <strong>{empresa.nome}</strong>
+            <p>Pontuação: {empresa.pontuacao}</p>
+            <Link to={`/empresas/${empresa.id}`}>Acessar</Link>
           </article>
         ))}
-        <div className="actions">
-          <button disabled={page === 1} onClick={this.prevPage}>Anterior</button>
-          <button disabled={page === productInfo.pages} onClick={this.nextPage}>Próxima</button>
-        </div>
       </div>
     );
   }
