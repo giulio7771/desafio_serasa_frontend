@@ -7,7 +7,7 @@ Para testar a instalação:
   node --version
   npm --verion
 
-1 - Clone o projeto
+1 - Clone o projeto<br>
 2 - Dentro do projeto rode 'npm install' no terminal 
 3 - Em seguida rode 'npm start'
 
