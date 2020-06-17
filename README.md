@@ -11,4 +11,6 @@ Para testar a instalação:<br>
 2 - Dentro do projeto rode 'npm install' no terminal<br>
 3 - Em seguida rode 'npm start'<br>
 <br>
-O projeto irá executar na porta 3000
+O projeto irá executar na porta 3000<br>
+<br>
+Na pasta testfiles está o arquivo usado para teste.
