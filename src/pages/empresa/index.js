@@ -31,6 +31,13 @@ export default class Product extends Component {
       await api.post('/dados-financeiros', requestInfo)
       .then(response => {
         alert("Arquivo enviado");
+        this.setState({
+          ...this.state,
+          empresa: {
+            ...this.state.empresa,
+            pontuacao: response.data.pontuacao
+          }
+        })
       });
     }
 
